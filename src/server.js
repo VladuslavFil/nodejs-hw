@@ -11,13 +11,15 @@ import { connectMongoDB } from './db/connectMongoDB.js';
 import notesRoutes from './routes/notesRoutes.js';
 
 const app = express();
-const PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT || 3000;
 
 app.use(logger);
-app.use(express.json({
-  limit: '200kb',
-  type: ['application/json', 'application/vnd.api+json'],
-}));
+app.use(
+  express.json({
+    limit: '200kb',
+    type: ['application/json', 'application/vnd.api+json'],
+  }),
+);
 app.use(cors());
 
 await connectMongoDB();
@@ -25,9 +27,8 @@ await connectMongoDB();
 app.use(notesRoutes);
 
 app.use(notFoundHandler);
-app.use(errors()); 
+app.use(errors());
 app.use(errorHandler);
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
