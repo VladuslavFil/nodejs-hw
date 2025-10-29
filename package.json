@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vitaliy-webdev/nodejs-hw.git"
+    "url": "git+https://github.com/VladuslavFil/nodejs-hw.git"
   },
   "keywords": [],
-  "author": "Vitaliy <vitalikkalamunak@gmail.com>",
+  "author": "Vlad <vlad.fil.mobile@gmail.com@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Vitaliy-webdev/nodejs-hw/issues"
+    "url": "https://github.com/VladuslavFil/nodejs-hw/issues"
   },
-  "homepage": "https://github.com/Vitaliy-webdev/nodejs-hw#readme",
+  "homepage": "https://github.com/VladuslavFil/nodejs-hw#readme",
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "eslint": "^9.36.0",
@@ -27,7 +27,9 @@
     "pino-pretty": "^13.1.1"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "celebrate": "^15.0.3",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",

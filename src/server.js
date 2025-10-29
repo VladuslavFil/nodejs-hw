@@ -9,26 +9,29 @@ import { errorHandler } from './middleware/errorHandler.js';
 import { connectMongoDB } from './db/connectMongoDB.js';
 
 import notesRoutes from './routes/notesRoutes.js';
+import authRoutes from './routes/authRoutes.js';
+import cookieParser from "cookie-parser";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(logger);
-app.use(
-  express.json({
-    limit: '200kb',
-    type: ['application/json', 'application/vnd.api+json'],
-  }),
-);
+app.use(express.json({
+  limit: '200kb',
+  type: ['application/json', 'application/vnd.api+json'],
+}));
 app.use(cors());
+app.use(cookieParser());
 
 await connectMongoDB();
 
 app.use(notesRoutes);
+app.use(authRoutes);
 
 app.use(notFoundHandler);
 app.use(errors());
 app.use(errorHandler);
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
